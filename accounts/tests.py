@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 
 class UserTestClass(TestCase):
-    
+
     def setUp(self):
         self.user1 = User(
             username = 'test1',
