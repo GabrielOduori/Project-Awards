@@ -66,11 +66,16 @@ def display_projects(request):
 #             return render(request,'')
 
 def project_detail(request, id):
-    # project_details = get_object_or_404(Project, id=id)
-    project_details = Project.objects.all()
+    project_details = get_object_or_404(Project, id=id)
+    # project_details = Project.objects.all()
+    
+    context = {
+        
+        "project_details":project_details
+    }
     
 
-    return render(request, 'projects/project_details.html', {'project_details':project_details})
+    return render(request, 'projects/project_details.html', context)
 
 
 def project_by_user(request, id):
@@ -112,6 +117,14 @@ class ProfileAPI(APIView):
         profiles = Profile.objects.all()
         serializers = ProfileSerializer(profiles, many=True)
         return Response(serializers.data)
+    
+    
+    # def post(self, request, format=None):
+    #     serializers = MerchSerializer(data=request.data)
+    #     if serializers.is_valid():
+    #         serializers.save()
+    #         return Response(serializers.data, status=status.HTTP_201_CREATED)
+    #     return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
         
 
 class ProjectAPI(APIView):
