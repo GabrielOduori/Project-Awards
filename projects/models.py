@@ -18,7 +18,6 @@ class Project(models.Model):
         verbose_name = "Project"
         verbose_name_plural = "Projects"
 
-
     def __str__(self):
         return f'{self.title}'
     
@@ -37,6 +36,12 @@ class Project(models.Model):
     def search_project(cls, term):
         searched_images = cls.objects.filter(project__titile__icontains = term)
         return searched_images
+    
+    @classmethod
+    def get_projects(cls):
+        projects = Project.objects.all()
+        
+        return projects
     
     
 class Review(models.Model):
