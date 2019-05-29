@@ -9,13 +9,54 @@
 {% endblock %}
 
 {% block body %}
+
+{% if user.is_authenticated %}
 <div class="container">
-    <h2>Profile</h2>
+    <h2>My Profile</h2>
         <p>Username:{{user}}</p>
         <p>First Name:{{user.first_name}}</p>
         <p>Last Name:{{user.last_name}}</p>
         <p>Contact Email:{{user.email}}</p>
-       
+        <p>Bio: {{user.profile.bio}}</p>
+        <p>Phone: {{user.profile.phone}}</p>
+        <img src="{{user.profile.photo.url}}" width="200">
+        <hr> 
+        
+        {% endif %}
+        
+
+
+
+        {% if projects %}
+<h1>Personal Projects...</h1>
+<div class="row">
+
+
+{% for image in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{{ image.photo.url }}"  />
+            <div class="card-body">
+                <!-- <h5 class="card-title"></h5> -->
+                </a>
+            </div>
+            <small class="text-muted">Posted : {{image.pub_date|timesince}}</small>
+        </div>
+    </div>
+    {% endfor %}
 </div>
+
+</div>
+
+{% else %}
+
+<h5> There are still no projects posted by : {{user.username}}</h5>
+
+{% endif %}
+<hr>
+ 
+
+</div>
+
 
 {% endblock %}
