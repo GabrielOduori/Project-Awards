@@ -8,3 +8,4 @@ class ProfileAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Profile, ProfileAdmin)
+admin.site.site_header = 'Awaards Administration'
