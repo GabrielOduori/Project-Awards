@@ -10,10 +10,11 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     bio = models.CharField(max_length =200, default = '')
     phone = models.CharField(null=False,max_length  = 12)
-    photo = models.ImageField(default='default.jpg',upload_to = 'profile_pictures')
+    photo = models.ImageField(default='default.jpg',upload_to = 'profiles')
+    email = models.EmailField(blank=True)
     
     def __str__(self):
-        return f'{self.user}'
+        return f'{self.user.username}'
 
 '''
 We dont have to create profiles every time a user signs up. Instead,
