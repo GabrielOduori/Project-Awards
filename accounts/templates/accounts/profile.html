@@ -24,20 +24,20 @@
         
         {% endif %}
         
-
-
-
         {% if projects %}
-<h1>Personal Projects...</h1>
-<div class="row">
+        <h1>Personal Projects...</h1>
+        <div class="row">
 
 
-{% for image in projects %}
-    <div class="col-md-4">
-        <div class="card mb-2">
-            <img class="card-img-top" src="{{ image.photo.url }}"  />
-            <div class="card-body">
-                <!-- <h5 class="card-title"></h5> -->
+        {% for image in projects %}
+        <div class="col-md-4">
+            <div class="card mb-2">
+                <img class="card-img-top" src="{{image.image.url}}"/>
+                <div class="card-body">
+                <h5 class="card-title">{{image.title}}</h5>
+                <p>
+                    {{image.summary}}
+                </p>
                 </a>
             </div>
             <small class="text-muted">Posted : {{image.pub_date|timesince}}</small>
