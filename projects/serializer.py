@@ -16,8 +16,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         )
         
         
-        
-        
 class ProjectSerializer(serializers.ModelSerializer):
     
     class Meta:
