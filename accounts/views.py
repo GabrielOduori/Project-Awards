@@ -11,9 +11,9 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-def home(request):
-    title = "Home"
-    return render(request, 'accounts/home.html', {"title":title})
+# def home(request):
+#     title = "Home"
+#     return render(request, 'accounts/home.html', {"title":title})
 
 
 
@@ -34,10 +34,10 @@ def register(request):
     
     
     
-@login_required   
-def view_profile(request):
-    context  = {"user":request.user}
-    return render(request, 'accounts/profile.html', context)
+# @login_required   
+# def view_profile(request):
+#     context  = {"user":request.user}
+#     return render(request, 'accounts/profile.html', context)
 
 @login_required
 def edit_profile(request):
@@ -83,12 +83,12 @@ def user_profile(request):
     except ObjectDoesNotExist:
         return redirect('register')
 
-    # context = { 
-    #            'profile':profile,
-    #            'projects':projects,
-    #            'current_user':current_user
-    #            }
-    return render(request,'profile/profile.html',{"projects":projects})
+    context = { 
+               'profile':profile,
+               'projects':projects,
+               'current_user':current_user
+               }
+    return render(request,'accounts/profile.html',context)
 
 
 
