@@ -32,10 +32,8 @@ def add_project(request):
             return redirect(reverse('accounts:view_profile'))
     else:
         form = AddProjectForm()
-        context  = {
-            "form":form
-            }
-    return render(request, 'projects/add_project.html', context)
+        
+    return render(request, 'projects/add_project.html', {'form':form})
     
         
 
