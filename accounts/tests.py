@@ -28,25 +28,6 @@ class UserTestClass(TestCase):
         
 
 
-        
-
-# class ProfileTestClass(TestCase):
-#     def setUp(self):
-#         #  Creating a new editor and saving it
-#          self.profile1 = Profile(
-#              user.user1 ='test1',
-#              bio = 'This is great',
-#              photo = 'pic.jpg',
-#              email = 'gabriel.oduori@gmail.com')
-#     def test_instance(self):
-#         self.assertTrue(isinstance(self.profile1, Profile))
-         
-         
-#         # Testing Save Method
-#     def test_save_method(self):
-#         self.profile1.save_profile()
-#         profiles = Profile.objects.all()
-#         self.assertTrue(len(profiles) > 0)
 
         
         
