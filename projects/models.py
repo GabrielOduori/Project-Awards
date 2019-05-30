@@ -10,7 +10,7 @@ class Project(models.Model):
     description = models.TextField()
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(default='default.jpg',upload_to = 'projects/')
+    image = models.ImageField(upload_to = 'projects/')
     website = models.TextField(validators=[URLValidator()])
     
     class Meta:
