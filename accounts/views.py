@@ -8,6 +8,7 @@ from projects.models import Project
 from .models import Profile
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, logout 
 
 # Create your views here.
 
@@ -22,14 +23,14 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/accounts')
+            return redirect('/accounts/profile')
     else:
         form = RegistrationForm()
-        context = {
-            'form':form
-        }
+        # context = {
+        #     'form':form
+        # }
         
-    return render(request,'accounts/register_form.html',context)
+    return render(request,'accounts/register_form.html',{"form":form})
     
     
     
@@ -68,7 +69,7 @@ def change_password(request):
         context = {
             "form":form
         }
-        return render(request, 'accounts/change_password.html', context)
+        return render(request, '/accounts/change_password.html', context)
     
     
 @login_required
@@ -92,6 +93,8 @@ def user_profile(request):
 
 
 
-def logout(request):
-    pass
+def logout_user(request):
+    logout(request)
+    print('You have been logged out')
+    return redirect('home-page:home-page')
     
