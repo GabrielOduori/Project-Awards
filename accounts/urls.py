@@ -9,12 +9,8 @@ urlpatterns = [
     
     # url(r'^$', views.home, name='home'),
     url(r'^login/$', login, {'template_name':'accounts/login.html'}),
-    url(r'^logout/$', views.logout, {"next_page": '/'}),
-    
-    url(r'^logout/$', logout, {'template_name': 'accounts/logout.html'}, name='logout'),
-    
-    
-    
+    url(r'^logout/', views.logout_user, name = 'logout'),
+    # url(r'^logout/$', logout, {'template_name': 'accounts/logout.html'}, name='logout'),
     url(r'^register/$',views.register, name = 'register'),
     url(r'^profile/$', views.user_profile, name = 'view_profile' ),
     url(r'^profile/edit/$', views.edit_profile, name = 'edit_profile' ),
