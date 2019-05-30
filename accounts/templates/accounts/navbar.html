@@ -1,33 +1,46 @@
 
 
 
-          <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-              <a class="p-2 text-dark" href="{% url 'home-page:home-page' %}">Home</a>
-             
-                  <form class="form-inline my-2 my-lg-0">
-                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                    
-                  {% if user.is_authenticated %}
 
-                  <div class="dropdown">
-                      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Manage {{user.username}}'s profile
-                      </a>
-                    
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="/accounts/profile/">{{user.username}} Profile</a>
-                        <a class="dropdown-item" href="/accounts/profile/edit">Update Profile</a>
-                        <a class="dropdown-item" href="/accounts/change-password">Change Password</a>
-                      </div>
-                    </div>
-                <a class="p-2 text-dark" href="/projects/add">Add Project</a>
-              
-              <a class="btn btn-outline-primary" href="/accounts/logout">Logout</a>
-              {% else %}
-              <a class="p-2 text-dark" href="/accounts/register">Register</a>
-              <a class="p-2 text-dark" href="/accounts/login">Login</a>
-              {% endif %}
-            </div>
-            
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="min-height: 80px;">
+    <a class="navbar-brand" href="{% url 'home-page:home-page' %}">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+
+{% if user.is_authenticated %}
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Manage Profile
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/accounts/profile/">{{user.username}} Profile</a>
+            <a class="dropdown-item" href="/accounts/profile/edit">Update Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/accounts/change-password">Change Password</a>
+          </div>
+        </div>
+
+
+      {% else %}
+      <a class="p-2 text-dark" href="/accounts/register">Register</a>
+      <a class="p-2 text-dark" href="/accounts/login">Login</a>
+    </div>
+    {% endif %}
+  </nav>
+
+
+
+
+
+
+         
