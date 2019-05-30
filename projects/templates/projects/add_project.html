@@ -5,7 +5,7 @@
 {% block body %}
 <div class="container">
     <div class="col-6 col-md-4">
-        <form method="POST">
+        <form action="/projects/add/" enctype="multipart/form-data" method="POST">
             {% csrf_token %} 
                 {{form|crispy}}
             <button type="submit">Submit</button>    
